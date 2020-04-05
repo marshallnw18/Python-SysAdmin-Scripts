@@ -21,6 +21,7 @@ def calculate_bmi(weight, height, system='metric'):
         bmi = 703 * (weight / (height ** 2))
     return bmi
 
+#infinite loop that will execute until valid input is given
 while True:
     height, weight, system = gather_info()
     if system.startswith('i'):
