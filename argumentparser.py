@@ -12,12 +12,20 @@ parser.add_argument('--version','-v', action='version', version='%(prog)s 1.0')
 #parse and print the arguments passed in by the user
 args = parser.parse_args()
 
-with open(args.filename) as f:
-    lines = f.readlines()
-    lines.reverse()
+#attempt to open the file
+try:
+    f = open(args.filename)
+    limit = args.limit
+#if a FileNotFoundError is caught, print err message to handle it
+except FileNotFoundError as err:
+    print(f"Error: {err}")
+else:
+    with f:
+        lines = f.readlines()
+        lines.reverse()
 
-    if args.limit:
-        lines = lines[:args.limit]
-    
-    for line in lines:
-        print(lines.strip()[::1])
+        if args.limit:
+            lines = lines[:limit]
+        
+        for line in lines:
+            print(lines.strip()[::1])
