@@ -15,7 +15,7 @@ file_name = get_file_name()
 print(f"Please enter your content. Entering an empty line will write the content to {file_name}:\n")
 
 #open the given filename and begin writing to it
-with open(file_name, 'w') as f:
+with open(file_name, 'a') as f:
     eof = False
     lines = []
 
